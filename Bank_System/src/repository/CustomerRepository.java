@@ -1,6 +1,8 @@
 package repository;
+
 import domain.Customer;
-import domain.Transaction
+import domain.Transaction;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

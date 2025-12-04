@@ -1,6 +1,7 @@
 package repository;
 
 import domain.Account;
+import domain.Customer;
 
 import java.util.*;
 
@@ -21,8 +22,9 @@ public class AccountRepository {
 
     public List<Account> findByCustomerId(String customerId) {
         List<Account> result = new ArrayList<>();
-        for (Account a : accountsByNumber.values()) {
-            if (a.getCustomerId().equals(customerId)) result.add(a);
+        for (Account a : accountsByNumber.values()){
+            if (a.getCustomerId().equals(customerId))
+                result.add(a);
         }
         return result;
     }

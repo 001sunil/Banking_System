@@ -107,6 +107,4 @@ public class Main {
                 System.out.println(account.getAccountNumber() + " | " + account.getAccountType() + " | " + account.getBalance())
         );
     }
-
-
 }

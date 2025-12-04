@@ -129,6 +129,12 @@ public class BankServiceImpl implements BankService {
     @Override
     public List<Account> searchAccountsByCustomerName(String q) {
         String query = (q == null) ? "" : q.toLowerCase();
+//        List<Account> result = new ArrayList<>();
+//        for (Customer c : customerRepository.findAll()){
+//            if (c.getName().toLowerCase().contains(query))
+//                result.addAll(accountRepository.findByCustomerId(c.getId()));
+//        }
+//        result.sort(Comparator.comparing(Account::getAccountNumber));
 
         return customerRepository.findAll().stream()
                 .filter(c -> c.getName().toLowerCase().contains(query))
@@ -136,7 +142,7 @@ public class BankServiceImpl implements BankService {
                 .sorted(Comparator.comparing(Account::getAccountNumber))
                 .collect(Collectors.toList());
 
-
+//        return result;
     }
 
     private String getAccountNumber() {
