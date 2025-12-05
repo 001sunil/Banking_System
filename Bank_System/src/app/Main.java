@@ -96,7 +96,7 @@ public class Main {
 
     private static void listAccounts(Scanner scanner, BankService bankService) {
         bankService.listAccounts().forEach(a -> {
-            System.out.println(a.getAccountNumber() + " | " + a.getAccountType() + " | " + a.getBalance());
+            System.out.println(a.getAccountNumber() + " | " + a.getAccountType() + " | " + a.getAccountName());
         });
     }
 

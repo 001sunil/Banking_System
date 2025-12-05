@@ -58,10 +58,13 @@ public class BankServiceImpl implements BankService {
         // CHANGE LATER --> 10 + 1 = AC000011 --> AC<06>
 //        String accountNumber = UUID.randomUUID().toString();
         String accountNumber = getAccountNumber();
-        Account account = new Account(accountNumber,accountType, (double) 0,customerId);
+        String accountName = c.getName();
+        Account account = new Account(accountNumber,accountType, (double) 0,customerId,accountName);
         accountRepository.save(account);
-        return accountNumber;
+
+            return accountNumber;
     }
+
 
     @Override
     public List<Account> listAccounts() {
@@ -148,5 +151,11 @@ public class BankServiceImpl implements BankService {
     private String getAccountNumber() {
         int size = accountRepository.findAll().size() + 1;
         return String.format("AC%06d", size);
+    }
+    @Override
+    public String getCustomerNameById(String customerId) {
+        return customerRepository.findById(customerId)
+                .map(Customer::getName)
+                .orElse("Unknown");
     }
 }

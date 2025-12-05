@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class CustomerRepository {
     private final Map<String, Customer> customersById = new HashMap<>();
@@ -17,5 +18,8 @@ public class CustomerRepository {
 
     public void save(Customer c) {
         customersById.put(c.getId(), c);
+    }
+    public Optional<Customer> findById(String id) {
+        return Optional.ofNullable(customersById.get(id));
     }
 }
